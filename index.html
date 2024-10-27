@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			Webbed PSN
+		</title>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500|Rubik:400|Ubuntu:300,400|Roboto+Condensed|Source+Sans+Pro:600">
+		<style>
+		</style>
+	</head>
+	<body>	
+		<p>A PS3 game updater, all on the web. Heavy thanks to rusty-psn, without their source code this project would've been screwed from the start.</p>
+		<div style="text-align:center;"> <!-- This is the search bar, and centering it is most easily done by a div. This breaks with a width under 460px, so find a better way to center it that doesn't do that. --!>
+			<input type="text" id="TitleID_UserInput" onkeyup="SubmitTitleID()" placeholder="Title's Serial goes here" title="All you need is the title ID. Go on. I'll wait." autocomplete="off" style="width:50%;">
+		</div>
+
+	
+
+
+		<script>
+			function SubmitTitleID() {
+				var id_input, id_allcaps;
+				id_input = document.getElementById("TitleID_UserInput");
+				id_allcaps = id_input.value.toUpperCase();
+				BeginUpdateFindingSequence(id_allcaps);
+			}
+			
+			function BeginUpdateFindingSequence(chosenID) {   // This is the parent...? that does everything. If I'm a good programmer then everything will be broken up into their own, neat, self-contained functions. Like a GOOD PROGRAMMER would do.
+				console.log("Started update search for ID: "+chosenID );
+				let update_xml = ObtainUpdateXML(chosenID);
+				console.log(update_xml);
+			}
+			
+			function ObtainUpdateXML(update_id) {
+				// I need to download the XML from a link. Litterally any link. For god's sakes. Please. Why is it so difficult. Somebody save me.
+			}
+			 
+				
+		</script>
+	</body>
+</html>
+
+
+<!-- Oi! Keep this link: https://a0.ww.np.dl.playstation.net/tpl/np/NPUA80662/NPUA80662-ver.xml  It's the .xml file for title ID NPUA80662, which is LBP2 Digital Edition. You're 100% going to need it for testing. -->
