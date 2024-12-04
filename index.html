@@ -10,7 +10,30 @@
 	</head>
 	<body>	
 		<p>A PS3 game updater, all on the web. Heavy thanks to rusty-psn, without their source code this project would've been screwed from the start.</p>
-		<div style="text-align:center;"> <!-- This is the search bar, and centering it is most easily done by a div. This breaks with a width under 460px, so find a better way to center it that doesn't do that. --!>
+		<div style="text-align:center;"> 
+
+
+	<script>
+
+function loadDoc() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("xmldata").innerText = this.responseText;
+    }
+  };
+  xhttp.open("GET", "http://localhost:13000/");
+  xhttp.send();
+}
+
+loadDoc();
+ 
+    </script>
+
+    <div id="xmldata"></div>
+			
+			
+			<!-- This is the search bar, and centering it is most easily done by a div. This breaks with a width under 460px, so find a better way to center it that doesn't do that. --!>
 			<input type="text" id="TitleID_UserInput" onkeyup="SubmitTitleID()" placeholder="Title's Serial goes here" title="All you need is the title ID. Go on. I'll wait." autocomplete="off" style="width:50%;">
 		</div>
 
